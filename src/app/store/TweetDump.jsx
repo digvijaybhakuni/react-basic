@@ -8,6 +8,8 @@ const tweets = [
     "body" : "RT @JavaScriptKicks: Configuring Your .npmrc for an Optimal Node.js Environment by bitandbang https://t.co/ESopKFGga7 #javascript #nodejs v…",
     "date" : "2017-04-18T08:27:51.000Z",
     "screenname" : "stillmtt",
+    "liked": true,
+    "reTweet": 4,
     "__v" : 0
 },
 {
