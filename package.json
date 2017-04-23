@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --content-base src --inline --hot",
     "build": "webpack",
-    "deploy": "hs ./dist/"
+    "deploy": "webpack && node server.js"
   },
   "keywords": [
     "ReactJS"
@@ -27,6 +27,10 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "flux": "^3.1.2",
     "history": "^1.17.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",

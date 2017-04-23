@@ -86,7 +86,7 @@ const tweets = [
     "active" : false,
     "author" : "programming.jobfeeds",
     "avatar" : "http://pbs.twimg.com/profile_images/611834314586750976/feZ5fZOO_normal.png",
-    "body" : "Junior PHP Developer Fleet, Hampshire https://t.co/ugq5QF8x74 #Javascript #jobs",
+    "body" : "Junior PHP Developer Fleet, Hampshire https://t.co/ugq5QF8x74 #Javascript #jobs, #PHP, #CakePHP, #Laravel ",
     "date" : "2017-04-18T08:30:31.000Z",
     "screenname" : "coding_jobfeeds",
     "__v" : 0

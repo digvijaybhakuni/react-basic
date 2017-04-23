@@ -1,12 +1,22 @@
 import React from "react";
+import * as TweetAction from "../actions/TweetAction.jsx";
 
 export default class Tweet extends React.Component{
 	constructor(props){
 		super();
 	}
 
+	reTweet(){
+		TweetAction.reTweet(this.props.tweet);
+	}
+
+	likeTweet(){
+		TweetAction.likeTweet(this.props.tweet);
+	}
+
 	render() {
-		const { body,  date, twid, avatar, author, screenname} = this.props.tweet;
+		const { body,  date, twid, avatar, author, screenname, liked, reTweet} = this.props.tweet;
+		const likeText = (liked) ? "Unlike" :  "Like" ;
 		return(
 			<div class="col-md-4 tweet">
 				<div class="panel panel-primary">
@@ -19,8 +29,8 @@ export default class Tweet extends React.Component{
 					</div>
 					<div class="panel-body">
 						<ul class="nav nav-pills" role="tablist">
-							<li role="presentation"><a href="" class="btn btn-primary">Like</a></li>
-							<li role="presentation"><a href="" class="btn btn-primary">ReTweet <span class="badge">3</span></a></li>
+							<li role="presentation"><button onClick={this.likeTweet.bind(this)} class="btn btn-primary">{likeText}</button></li>
+							<li role="presentation"><button onClick={this.reTweet.bind(this)} class="btn btn-primary">ReTweet <span class="badge">{reTweet}</span></button></li>
 						</ul>
 					</div>
 				</div>
