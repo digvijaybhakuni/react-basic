@@ -64,4 +64,8 @@ typings/
 # Back Up file
 .bak
 
+# Flow Type Stub 
+flow-typed/
+
+
 # End of https://www.gitignore.io/api/node

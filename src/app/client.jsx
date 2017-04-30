@@ -1,3 +1,4 @@
+//@flow
 import React from "react";
 import ReactDOM from "react-dom";
 import {
@@ -12,7 +13,10 @@ import FavTweets from "./components/pages/FavTweets.jsx";
 import MyTweets from "./components/pages/MyTweets.jsx";
 import ReTweets from "./components/pages/ReTweets.jsx";
 
+import store from "./store/TweetReduxStore.jsx"
+
 const app = document.getElementById('app');
+
 
 //console.log(hashHistory);
 

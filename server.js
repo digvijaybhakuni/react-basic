@@ -1,18 +1,22 @@
+//@flow
 const express = require('express');
 const path = require('path');
 const http = require('http');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 
+const OAUTH_TOKEN_ = "";
 
 const app = express();
 const router = express.Router();
+
+
 
 const axiosClient = axios.create({
     baseURL: "https://api.twitter.com/1.1/",
     //timeout: 10000,
     headers: {
-        "authorization": ""
+        "authorization": OAUTH_TOKEN_
     }
 });
 
