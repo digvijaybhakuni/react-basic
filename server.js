@@ -1,10 +1,10 @@
-//@flow
+
 const express = require('express');
 const path = require('path');
 const http = require('http');
 const axios = require('axios');
 const bodyParser = require('body-parser');
-
+const tweetsDump = require('./src/app/store/TweetDump.jsx');
 const OAUTH_TOKEN_ = "";
 
 const app = express();
@@ -38,9 +38,14 @@ router.get("/mytweets", (req, res) => {
         });
 });
 
+
+router.get("/tweetdumps", (req, res) => {
+    res.json(tweetsDump);
+});
+
 app.use('/api', router);
 
-app.get('*', (req, res) => {
+app.get('*', (req, res, next) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 

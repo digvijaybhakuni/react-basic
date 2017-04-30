@@ -3,6 +3,7 @@ import React from "react";
 import Tweet from "../Tweet.jsx"
 import * as TweetAction from "../../actions/TweetAction.jsx";
 import TweetStore from "../../store/TweetStore.jsx";
+import TweetReduxStore from "../../store/TweetReduxStore.jsx";
 
 window.TweetAction = TweetAction;
 
@@ -20,14 +21,20 @@ export default class MyTweets extends React.Component {
 		    console.log("tws", tws);
 		    this.getTweets();
     	}).bind(this);
+
+		this.subscribeRedux = (()=> { 
+			console.log("subscribeRedux change");
+			this.setState({tweets: TweetReduxStore.getState().tweets});
+		}).bind(this);
 	}
 
 	componentWillMount() {
-    	TweetStore.on("change", this.changeListner);
+    	//TweetStore.on("change", this.changeListner);
+		TweetReduxStore.subscribe(this.subscribeRedux);
 	}
 
 	 componentWillUnmount(){
-		TweetStore.removeListener("change", this.changeListner);
+		//TweetStore.removeListener("change", this.changeListner);
 	 }
 
 	getTweets() {
