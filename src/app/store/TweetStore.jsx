@@ -1,5 +1,5 @@
 import { EventEmitter } from "events";
-import tweets from "./TweetDump.jsx";
+
 import axios from "axios";
 
 console.log("axios", axios);
@@ -10,14 +10,21 @@ class TweetStore extends EventEmitter {
 
 	constructor() {
 		super()
-		console.log("tweets", tweets);
-		this.tweets = tweets;
+		this.tweets = [];
 		this.tweetsMapping = this.tweetsMapping.bind(this);
 		this.http = axios.create({});
+		this.intTweetStore();
 	}
 
 	getAll() {
 		return this.tweets;
+	}
+
+	intTweetStore(){
+		this.http.get('api/tweetdumps')
+	 .then((res) => { this.tweets = res.data; this.emit("change"); })
+	 .catch(console.log);
+
 	}
 
 	loadTweets(){

@@ -22,19 +22,19 @@ export default class MyTweets extends React.Component {
 		    this.getTweets();
     	}).bind(this);
 
-		this.subscribeRedux = (()=> { 
+		this.subscribeRedux = (()=> {
 			console.log("subscribeRedux change");
 			this.setState({tweets: TweetReduxStore.getState().tweets});
 		}).bind(this);
 	}
 
 	componentWillMount() {
-    	//TweetStore.on("change", this.changeListner);
-		TweetReduxStore.subscribe(this.subscribeRedux);
+    TweetStore.on("change", this.changeListner);
+		//TweetReduxStore.subscribe(this.subscribeRedux);
 	}
 
 	 componentWillUnmount(){
-		//TweetStore.removeListener("change", this.changeListner);
+		TweetStore.removeListener("change", this.changeListner);
 	 }
 
 	getTweets() {

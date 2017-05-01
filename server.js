@@ -4,7 +4,7 @@ const path = require('path');
 const http = require('http');
 const axios = require('axios');
 const bodyParser = require('body-parser');
-const tweetsDump = require('./src/app/store/TweetDump.jsx');
+const tweets = require('./src/app/store/TweetDump.jsx');
 const OAUTH_TOKEN_ = "";
 
 const app = express();
@@ -40,7 +40,8 @@ router.get("/mytweets", (req, res) => {
 
 
 router.get("/tweetdumps", (req, res) => {
-    res.json(tweetsDump);
+  console.log("tweets", tweets);
+    res.json(tweets);
 });
 
 app.use('/api', router);

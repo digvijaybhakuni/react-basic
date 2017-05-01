@@ -96,4 +96,4 @@ const tweets = [
 
 ];
 
-export default tweets;
+module.exports = tweets;
