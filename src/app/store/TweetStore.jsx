@@ -14,6 +14,7 @@ class TweetStore extends EventEmitter {
 		this.tweetsMapping = this.tweetsMapping.bind(this);
 		this.http = axios.create({});
 		this.intTweetStore();
+		//this.loadTweets();
 	}
 
 	getAll() {

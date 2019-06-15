@@ -68,3 +68,5 @@ function test(){
 
     xhr.send(data);
 }
+
+window.test = test;

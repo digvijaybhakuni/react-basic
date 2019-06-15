@@ -7,6 +7,8 @@ import {
   Link, IndexRoute ,hashHistory
 } from 'react-router';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
 import Layout from "./components/Layout.jsx";
 
 import FavTweets from "./components/pages/FavTweets.jsx";
@@ -17,8 +19,9 @@ import store from "./store/TweetReduxStore.jsx"
 
 const app = document.getElementById('app');
 
-
-//console.log(hashHistory);
+//Needed for onTouchTap, Otherwise this error in Console
+//Unknown prop `onTouchTap` on <button> tag. Remove this prop from the element.
+injectTapEventPlugin();
 
 ReactDOM.render(
 	<Router history={hashHistory}>

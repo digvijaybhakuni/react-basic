@@ -5,7 +5,7 @@ const http = require('http');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const tweets = require('./src/app/store/TweetDump.jsx');
-const OAUTH_TOKEN_ = "";
+const OAUTH_TOKEN_ = "OAuth oauth_consumer_key=\"0vgmZK8MvZIWt5bVHY06lRPk0\",oauth_token=\"119315513-888wgpWpHeG1whbLZOZaWO74q7tr4DaMdUNWbUpS\",oauth_signature_method=\"HMAC-SHA1\",oauth_timestamp=\"1492924691\",oauth_nonce=\"aslOzE\",oauth_version=\"1.0\",oauth_signature=\"cuW7v54MKBlik1Hh%2FBxgY%2Fjuwtw%3D\"";
 
 const app = express();
 const router = express.Router();
@@ -33,8 +33,8 @@ router.get("/mytweets", (req, res) => {
             res.json(e.data);
         })
 		.catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
+            console.error('error', err.response);
+            res.status(err.response.status).json({msg: err.response.statusText});
         });
 });
 
